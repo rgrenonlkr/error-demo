@@ -1,0 +1,53 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Sample ErrorHandler",
+    "version": "1.0.0",
+    "title": "Sample ErrorHandler"
+  },
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": ["demo"],
+        "x-swagger-router-controller": "example",
+        "operationId": "it_fails",
+        "summary": "Test",
+        "description": "Route that fails",
+        "produces": ["application/json"],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "a response",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "an error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "required": ["code", "message"],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
+
